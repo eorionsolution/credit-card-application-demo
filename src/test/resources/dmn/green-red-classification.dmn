@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" xmlns:camunda="http://camunda.org/schema/1.0/dmn" id="Definitions_0o8fzd7" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="3.0.1">
+  <decision id="green-red-classification" name="Green Red Classification">
+    <decisionTable id="decisionTable_1" hitPolicy="COLLECT">
+      <input id="input_1" label="Age" camunda:inputVariable="age">
+        <inputExpression id="inputExpression_1" typeRef="integer">
+          <text></text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0hbtok4" label="Limitation" camunda:inputVariable="limitation">
+        <inputExpression id="LiteralExpression_0cn4iz1" typeRef="integer">
+          <text></text>
+        </inputExpression>
+      </input>
+      <output id="output_1" label="Result Class" name="resultClass" typeRef="string" />
+      <rule id="DecisionRule_06qef83">
+        <inputEntry id="UnaryTests_16hhl1d">
+          <text>&lt; 18</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0dm8cpl">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1336h9j">
+          <text>"red"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0yv8l4d">
+        <inputEntry id="UnaryTests_0txz4ib">
+          <text>[18..60]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0xpjqci">
+          <text>&lt;= 5000</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_01yx83h">
+          <text>"green"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_176toj0">
+        <inputEntry id="UnaryTests_1xi53hj">
+          <text>[18..60]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0uxssn4">
+          <text>&gt; 5000</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1fxej2y">
+          <text>"yellow"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0lr371y">
+        <inputEntry id="UnaryTests_04tk388">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_14z0b8n">
+          <text>&gt; 20000</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0rw3gjo">
+          <text>"yellow"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0y3vqp8">
+        <inputEntry id="UnaryTests_00ysa1z">
+          <text>&gt; 60</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_07qex9h">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_13yiy3h">
+          <text>"yellow"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+</definitions>

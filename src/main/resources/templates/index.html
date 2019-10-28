@@ -1,0 +1,64 @@
+﻿<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<title>MicroService Demo</title>
+<link rel="stylesheet" data-th-href="@{/themes/bootstrap4.min.css}">
+<link rel="stylesheet" data-th-href="@{/css/signin.css}">
+<link data-th-href="@{/css/all.min.css}" rel="stylesheet" type="text/css">
+<script data-th-src="@{/js/jquery-3.4.1.min.js}"></script>
+<script data-th-src="@{/js/popper.min.js}"></script>
+<script data-th-src="@{/js/bootstrap4.min.js}"></script>
+  <script data-th-src="@{/js/event.js}"></script>
+<link rel="shortcut icon" href="favicon.ico">
+<style>
+.bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+@media (min-width: 768px) {
+.bd-placeholder-img-lg {
+    font-size: 3.5rem;
+}
+}
+</style>
+</head>
+<body style="background-color: #eceff1; overflow-x: hidden" class="text-center">
+<form class="form-signin" id="app-form" action="/">
+  <p style="margin-bottom: 32px; font-weight: 400; font-size: 1.4rem">Microservice Demo</p>
+  <label for="Age" class="sr-only">Age</label>
+  <input type="text" id="Age" class="form-control" placeholder="Age" required autofocus>
+  <label for="Limitation" class="sr-only">Amount</label>
+  <input type="text" id="Limitation" class="form-control" placeholder="Limitation" required>
+  
+  <button id="submit-form" class="btn btn-lg
+				 btn-primary btn-block " type="submit" style="margin-top: 32px; font-weight: 700; margin-bottom: 32px"><i class="fad fa-fw fa-check" style="margin-right: 9px"></i>提交</button>
+   
+  <p class="mt-5 mb-3 text-muted" style="color: #90a4ae; font-size: 1.25rem ">
+
+    <span style="font-weight: 800; font-size: 1.6rem;"><i id="event-icon"></i></span><span id="event-text" style="font-weight: 600;font-size: 1.6rem;"></span>
+	  
+    <span style="font-size: 0.5rem; display: block; margin-top: 64px; opacity: 0.3;  font-weight: 400">© Copyright 2019 eorionsolution.com <br>
+    All Rights Reserved.</span></p>
+</form>
+
+<script>
+  $("#app-form").submit(function (event) {
+    event.preventDefault();
+    var age = document.getElementById("Age").value;
+    document.getElementById("Age").value = "";
+    var limitation = document.getElementById("Limitation").value;
+    document.getElementById("Limitation").value = "";
+    var url = "/app/" + age + "/" + limitation;
+    $.post(url);
+  });
+</script>
+
+</body>
+</html>
